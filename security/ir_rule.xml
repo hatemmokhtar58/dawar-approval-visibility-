@@ -6,7 +6,7 @@
             <field name="name">Approval Category Visibility based on Groups</field>
             <field name="model_id" ref="approvals.model_approval_category"/>
             <field name="domain_force">
-                ['|', ('allowed_group_ids', '=', False), ('allowed_group_ids', 'in', user.groups_id.ids)]
+                ['|', ('allowed_group_ids', '=', False), ('allowed_group_ids.users', 'in', [user.id])]
             </field>
             <!-- نطبق هذه القاعدة على جميع الموظفين -->
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
